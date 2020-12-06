@@ -67,6 +67,6 @@ fi
 TFILE=/tmp/munin-electrumx-tx-$$
 ${ELECTRUMX_RPC} getinfo > $TFILE
 
-echo "txs_sent.value `grep txs_sent $TFILE | grep -o '[0-9]*'`"
+echo "txs_sent.value `grep "txs sent" $TFILE | grep -o '[0-9]*'`"
 
 rm $TFILE
