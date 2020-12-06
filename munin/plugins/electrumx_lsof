@@ -91,9 +91,9 @@ echo "sessions.value $sessions"
 
 # check for arch linux, which doesn't include network handles by default
 IP=`grep IP $TFILE | /usr/bin/wc -l`
-if [ $IP = "0" ]; then
-	/usr/bin/lsof -p $pid -n -i | grep IP | grep -v -e LISTEN >> $TFILE
-fi
+#if [ $IP = "0" ]; then
+#	/usr/bin/lsof -p $pid -n -i | grep IP | grep -v -e LISTEN >> $TFILE
+#fi
 
 total=`/usr/bin/wc -l < $TFILE`
 ipv4=`grep IPv4 $TFILE | /usr/bin/wc -l`
