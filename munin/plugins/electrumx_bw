@@ -67,7 +67,7 @@ TFILE=/tmp/munin-electrumx-bw-$$
 ${ELECTRUMX_RPC} getinfo > $TFILE
 pid=`grep pid $TFILE | grep -o '[0-9]*'`
 
-/usr/sbin/nethogs -t -c 1 -d 10 > $TFILE 2> /dev/null
+/usr/sbin/nethogs -t -c 2 -d 10 > $TFILE 2> /dev/null
 
 grep /${pid}/ $TFILE | awk '{print "electrumxsent.value " $2*1024; print "electrumxrecv.value " $3*1024}'
 grep bitcoind $TFILE | awk '{print "bitcoindsent.value " $2*1024; print "bitcoindrecv.value " $3*1024}'
