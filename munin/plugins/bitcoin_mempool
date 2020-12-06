@@ -105,7 +105,7 @@ my $feeperbyte = 0;
 
 open (MP, "$ENV{'BITCOIN_CLI'} -datadir=$ENV{'BITCOIN_DATADIR'} getrawmempool true|") or die "Unable to open pipe from $ENV{'BITCOIN_CLI'}";
 while(<MP>) {
-	/"size": (\d+)/ and $size = $1;
+	/"vsize": (\d+)/ and $size = $1;
 	/"fee": (\d*\.\d+)/ and $fee = int($1*1e8 + .5);
 	if (/},/) {
 		if ($size > 0) {
